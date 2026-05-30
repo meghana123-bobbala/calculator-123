@@ -20,43 +20,64 @@ const months = [
 
 // Specific emoji mapping for each occasion
 const occasionEmojis = {
+    // National Holidays
     "New Year's Day": "🎉",
-    "Republic Day (India)": "🇮🇳",
-    "Valentine's Day": "💕",
-    "Maha Shivaratri": "🕉️",
-    "International Women's Day": "👩",
-    "Holi (India)": "🎨",
-    "Easter": "🐰",
+    "Republic Day": "🇮🇳",
+    "Independence Day": "🇮🇳",
     "Good Friday": "✝️",
-    "Eid ul-Fitr": "🌙",
-    "Ambedkar Jayanti": "📚",
-    "Labour Day": "✊",
-    "Eid ul-Adha": "🐑",
+    "Easter": "🐰",
     "Buddha Purnima": "🧘",
+    "Ambedkar Jayanti": "📚",
+    "Mahatma Gandhi Jayanthi": "🕯️",
+    "Children's Day": "👧",
+    
+    // Telangana Festivals
+    "Bhogi": "🔥",
+    "Sankranti": "🌾",
+    "Pongal": "🍚",
+    "Kanumu": "🎯",
+    "Ugadi": "🌺",
+    "Holi": "🎨",
+    "Rama Navami": "🙏",
+    "Bonalu": "🎭",
+    "Varalakshmi Vratham": "🌸",
+    "Rakhi Purnimi": "🎀",
+    "Batukamma": "🌸",
+    "Vijaya Dasami": "🗡️",
+    "Deepavali": "🎆",
+    "Karthika Pournami": "💫",
+    "Krishnashtami": "🪈",
+    "Vinayaka Chavithi": "🧡",
+    
+    // Islamic Holidays  
+    "Eid ul-Fitr": "🌙",
+    "Ramzan": "🌙",
+    "Eidul Azha": "🐑",
+    "Bakrid": "🐑",
+    "Eid Milad-un-Nabi": "🌙",
+    "Moharram": "🌙",
+    "Shab-e-Barat": "⭐",
+    "Shab-e-Qader": "⭐",
+    "Shab-e-Meraj": "⭐",
+    
+    // Personal Occasions
+    "Valentine's Day": "💕",
     "Father's Day": "👨‍👦",
     "Mother's Day": "👩‍👧",
-    "Independence Day (USA)": "🇺🇸",
-    "Independence Day (India)": "🇮🇳",
     "Friendship Day": "👫",
-    "Raksha Bandhan": "🎀",
-    "Krishna Janmashtami": "🪈",
-    "Malaysia Day": "🇲🇾",
-    "Varalaxmi Vratham": "🌸",
-    "Gandhi Jayanti": "🕯️",
-    "Ugadi (Telangana)": "🌺",
-    "Dussehra": "🗡️",
-    "Navratri": "🎭",
-    "Diwali (Lakshmi Puja)": "🎆",
-    "Diwali (Govardhan Puja)": "🎆",
-    "Diwali (Bhai Dooj)": "🎆",
-    "Children's Day (India)": "👧",
-    "Teej (Telangana)": "💃",
-    "Pongal": "🍚",
-    "Makar Sankranti": "🌾",
-    "Akshaya Tritiya": "✨",
-    "Thanksgiving (USA)": "🦃",
+    
+    // Global Holidays
     "Christmas": "🎄",
-    "Boxing Day": "🎁"
+    "Boxing Day": "🎁",
+    "Christmas Eve": "🎅",
+    
+    // Other Holidays
+    "Labour Day": "✊",
+    "International Women's Day": "👩",
+    "Mahashivarathri": "🕉️",
+    "Mahaveer Jayanthi": "🙏",
+    "Ratha Yathra": "🛞",
+    "Harvest New Year": "🌾"
 };
 
 // Fallback emoji by type
@@ -74,43 +95,83 @@ function getOccasionEmoji(title) {
 }
 
 // Built-in occasions for 2026 (using 0-based month indices)
+// Data scraped from Telangana Government Portal: https://www.telangana.gov.in/downloads/calendar-2026/
 const occasions = {
+    // JANUARY 2026
     "2026-0-1": { title: "New Year's Day", type: "holiday" },
-    "2026-0-14": { title: "Pongal", type: "festival" },
-    "2026-0-26": { title: "Republic Day (India)", type: "holiday" },
+    "2026-0-3": { title: "Birthday of Hazrath Ali", type: "festival" },
+    "2026-0-14": { title: "Bhogi", type: "festival" },
+    "2026-0-15": { title: "Sankranti", type: "festival" },
+    "2026-0-16": { title: "Kanumu", type: "festival" },
+    "2026-0-17": { title: "Shab-e-Meraj", type: "festival" },
+    "2026-0-23": { title: "Sri Panchami", type: "festival" },
+    "2026-0-26": { title: "Republic Day", type: "holiday" },
+    
+    // FEBRUARY 2026
+    "2026-1-4": { title: "Shab-e-Barat", type: "festival" },
     "2026-1-14": { title: "Valentine's Day", type: "observance" },
-    "2026-1-22": { title: "Makar Sankranti", type: "festival" },
-    "2026-1-25": { title: "Maha Shivaratri", type: "festival" },
-    "2026-2-8": { title: "International Women's Day", type: "observance" },
-    "2026-2-15": { title: "Holi (India)", type: "festival" },
-    "2026-2-29": { title: "Easter", type: "holiday" },
-    "2026-3-2": { title: "Good Friday", type: "holiday" },
-    "2026-3-10": { title: "Eid ul-Fitr", type: "festival" },
+    "2026-1-15": { title: "Mahashivarathri", type: "festival" },
+    
+    // MARCH 2026
+    "2026-2-3": { title: "Holi", type: "festival" },
+    "2026-2-10": { title: "Shahadat HZT Ali", type: "festival" },
+    "2026-2-13": { title: "Jumatul-Vida", type: "festival" },
+    "2026-2-17": { title: "Shab-e-Qader", type: "festival" },
+    "2026-2-19": { title: "Ugadi", type: "festival" },
+    "2026-2-21": { title: "Eid ul-Fitr (Ramzan)", type: "festival" },
+    "2026-2-27": { title: "Rama Navami", type: "festival" },
+    "2026-2-31": { title: "Mahaveer Jayanthi", type: "festival" },
+    
+    // APRIL 2026
+    "2026-3-3": { title: "Good Friday", type: "holiday" },
+    "2026-3-5": { title: "Babu Jagjivan Ram's Birthday", type: "observance" },
     "2026-3-14": { title: "Ambedkar Jayanti", type: "observance" },
-    "2026-3-22": { title: "Ugadi (Telangana)", type: "festival" },
-    "2026-4-1": { title: "Labour Day", type: "holiday" },
-    "2026-4-3": { title: "Eid ul-Adha", type: "festival" },
-    "2026-4-13": { title: "Akshaya Tritiya", type: "festival" },
-    "2026-4-15": { title: "Buddha Purnima", type: "festival" },
-    "2026-5-10": { title: "Mother's Day", type: "observance" },
+    "2026-3-20": { title: "Basava Jayanthi", type: "festival" },
+    
+    // MAY 2026
+    "2026-4-1": { title: "Buddha Purnima", type: "festival" },
+    "2026-4-10": { title: "Mother's Day", type: "observance" },
+    "2026-4-27": { title: "Eidul Azha (Bakrid)", type: "festival" },
+    
+    // JUNE 2026
+    "2026-5-4": { title: "Eid-e-Ghadeer", type: "festival" },
     "2026-5-21": { title: "Father's Day", type: "observance" },
-    "2026-6-4": { title: "Independence Day (USA)", type: "holiday" },
-    "2026-7-1": { title: "Friendship Day (India)", type: "observance" },
-    "2026-7-15": { title: "Independence Day (India)", type: "holiday" },
-    "2026-7-28": { title: "Krishna Janmashtami", type: "festival" },
-    "2026-8-1": { title: "Varalaxmi Vratham", type: "festival" },
-    "2026-8-2": { title: "Gandhi Jayanti", type: "observance" },
-    "2026-8-5": { title: "Dussehra", type: "festival" },
-    "2026-8-15": { title: "Raksha Bandhan", type: "festival" },
-    "2026-8-16": { title: "Malaysia Day", type: "holiday" },
-    "2026-8-22": { title: "Teej (Telangana)", type: "festival" },
-    "2026-8-25": { title: "Diwali (Lakshmi Puja)", type: "festival" },
-    "2026-9-1": { title: "Diwali (Govardhan Puja)", type: "festival" },
-    "2026-9-2": { title: "Diwali (Bhai Dooj)", type: "festival" },
-    "2026-9-14": { title: "Children's Day (India)", type: "observance" },
-    "2026-9-25": { title: "Thanksgiving (USA)", type: "holiday" },
-    "2026-10-25": { title: "Christmas", type: "holiday" },
-    "2026-10-26": { title: "Boxing Day", type: "holiday" }
+    "2026-5-25": { title: "9th Moharram", type: "festival" },
+    "2026-5-26": { title: "Moharram", type: "festival" },
+    
+    // JULY 2026
+    "2026-6-1": { title: "Friendship Day", type: "observance" },
+    "2026-6-16": { title: "Ratha Yathra", type: "festival" },
+    
+    // AUGUST 2026
+    "2026-7-4": { title: "Arbayeen", type: "festival" },
+    "2026-7-10": { title: "Bonalu", type: "festival" },
+    "2026-7-15": { title: "Independence Day", type: "holiday" },
+    "2026-7-21": { title: "Varalakshmi Vratham", type: "festival" },
+    "2026-7-26": { title: "Eid Milad-un-Nabi", type: "festival" },
+    "2026-7-28": { title: "Rakhi Purnimi", type: "festival" },
+    
+    // SEPTEMBER 2026
+    "2026-8-4": { title: "Krishnashtami", type: "festival" },
+    "2026-8-14": { title: "Vinayaka Chavithi", type: "festival" },
+    "2026-8-23": { title: "Yazdahum Shareef", type: "festival" },
+    
+    // OCTOBER 2026
+    "2026-9-2": { title: "Mahatma Gandhi Jayanthi", type: "observance" },
+    "2026-9-18": { title: "Batukamma", type: "festival" },
+    "2026-9-19": { title: "Maharnavami", type: "festival" },
+    "2026-9-20": { title: "Vijaya Dasami", type: "festival" },
+    "2026-9-21": { title: "Dussehra", type: "festival" },
+    "2026-9-26": { title: "Hazrath Syed Mohd. Juvanpuri Birthday", type: "festival" },
+    
+    // NOVEMBER 2026
+    "2026-10-8": { title: "Deepavali", type: "festival" },
+    "2026-10-24": { title: "Karthika Pournami", type: "festival" },
+    
+    // DECEMBER 2026
+    "2026-11-24": { title: "Christmas Eve", type: "holiday" },
+    "2026-11-25": { title: "Christmas", type: "holiday" },
+    "2026-11-26": { title: "Boxing Day", type: "holiday" }
 };
 
 // Load events from localStorage
