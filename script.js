@@ -157,6 +157,35 @@ function showNotification(title, message, type = "info") {
     }
 }
 
+// Celebrate special day with confetti and effects
+function celebrateDay(occasion) {
+    const color = {
+        'holiday': ['#ff006e', '#ff4b82', '#ff6b9d'],
+        'festival': ['#00ff88', '#00dd7a', '#00cc6f'],
+        'observance': ['#00d4ff', '#00b8e6', '#0099cc'],
+        'birthday': ['#ffd43b', '#ffdb5e', '#ffde7a']
+    };
+    
+    const colors = color[occasion.type] || ['#00d4ff', '#00b8e6', '#0099cc'];
+    
+    // Confetti burst
+    if (typeof confetti !== 'undefined') {
+        confetti({
+            particleCount: 80,
+            angle: 90,
+            spread: 100,
+            origin: { y: 0.5 },
+            colors: colors,
+            scalar: 1.5,
+            gravity: 0.8,
+            ticks: 200
+        });
+    }
+    
+    // Celebration notification
+    showNotification(`🎉 Celebrate!`, `Today is ${occasion.title}!`, 'success');
+}
+
 // Get unique key for a date
 function getDateKey(year, month, day) {
     return `${year}-${month}-${day}`;
@@ -264,7 +293,14 @@ function loadCalendar() {
             dateDiv.classList.add("has-indicator");
         }
         
-        dateDiv.onclick = () => selectDate(year, currentMonth, i);
+        // Click handler with celebration for special occasions
+        dateDiv.onclick = () => {
+            selectDate(year, currentMonth, i);
+            const occ = occasions[getDateKey(year, currentMonth, i)];
+            if (occ) {
+                celebrateDay(occ);
+            }
+        };
         datesContainer.appendChild(dateDiv);
     }
     
@@ -314,7 +350,10 @@ function displaySpecialDays() {
             </div>
         `;
         
-        specialDayDiv.onclick = () => selectDate(year, currentMonth, day.day);
+        specialDayDiv.onclick = () => {
+            selectDate(year, currentMonth, day.day);
+            celebrateDay(occasions[day.dateKey]);
+        };
         specialDaysList.appendChild(specialDayDiv);
     });
 }
