@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2026 Global Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>📅 2026 Global Calendar with Occasions</h1>
+        </header>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffe5e5; border: 2px solid #ff6b6b;"></div>
+                <span>Holidays</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #fff9c4; border: 2px solid #ffd43b;"></div>
+                <span>Birthdays</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e6fcf5; border: 2px solid #51cf66;"></div>
+                <span>Festivals</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e7f5ff; border: 2px solid #74c0fc;"></div>
+                <span>Observances</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f3e9ff; border: 2px solid #b197fc;"></div>
+                <span>Custom Events</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="calendar-section">
+                <div class="calendar">
+                    <div class="nav">
+                        <button onclick="prevMonth()" class="nav-btn">⬅ Prev</button>
+                        <div id="month" class="month-display"></div>
+                        <button onclick="nextMonth()" class="nav-btn">Next ➡</button>
+                    </div>
+
+                    <div class="days-header">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+
+                    <div class="dates" id="dates"></div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="special-days">
+                    <h2>✨ Special Days This Month</h2>
+                    <div id="specialDaysList" class="special-days-container"></div>
+                </div>
+
+                <div class="selected-day-info">
+                    <h2>Selected Day</h2>
+                    <div id="selectedDay" class="day-display">Select a date</div>
+                </div>
+
+                <div class="event-form">
+                    <h3>Add Event</h3>
+                    <input type="text" id="eventInput" placeholder="Event title" maxlength="30">
+                    <input type="time" id="eventTime">
+                    <div class="reminder-options">
+                        <label>
+                            <input type="checkbox" id="enableReminder"> Set Reminder
+                        </label>
+                        <select id="reminderTime" disabled>
+                            <option value="0">At event time</option>
+                            <option value="30">30 mins before</option>
+                            <option value="60">1 hour before</option>
+                            <option value="1440">1 day before</option>
+                        </select>
+                    </div>
+                    <button onclick="addEvent()" class="add-btn">Add Event</button>
+                </div>
+
+                <div class="events-list">
+                    <h3>Events</h3>
+                    <div id="eventsList" class="events-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
